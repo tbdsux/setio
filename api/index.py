@@ -17,8 +17,8 @@ async def weather(request, city_id=""):
     __message = {
         "messages": [
             {"text": f"Weather for *{weather[0]}, {weather[1]}*"},
-            {"text": f"It feels like *{weather[5]}°C* ({weather[4]}C)."},
-            {"text": f"The weather is *{weather[2]}* ({weather[3]}) with a maximum temperature of *{weather[7]}C* and a minimum temperature of *{weather[6]}C*."}
+            {"text": f"It feels like *{weather[5]}°C* ({weather[4]}°C)."},
+            {"text": f"The weather is *{weather[2]}* ({weather[3]}) with a maximum temperature of *{weather[7]}°C* and a minimum temperature of *{weather[6]}°C*."}
         ]
     }
 
