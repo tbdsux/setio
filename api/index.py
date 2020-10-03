@@ -23,5 +23,5 @@ async def weather(request, city_id=""):
 
     return json(__message)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=8000)
