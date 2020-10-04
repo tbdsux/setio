@@ -17,7 +17,7 @@ async def index(request, path=""):
 async def weather(request, city_id=""):
     weather = Weather.Get(city_id)
 
-    dt = pytz.timezone("Asia/Manila").localize(datetime.now()).strftime("%B %d, %Y | %I:%M %p")
+    dt = datetime.now(tz=pytz.timezone("Asia/Manila")).strftime("%B %d, %Y | %I:%M %p")
 
     if weather[0] != "404":
         __message = {
