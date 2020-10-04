@@ -38,21 +38,22 @@ async def weather(request, city_id=""):
 async def meme(request):
     fb_id = request.args['messenger user id']
     
-    meme = Meme.Get(fb_id)
+    if fb_id:
+        meme = Meme.Get(fb_id)
 
-    if meme:
-        return json({
-            "messages": [
-                {
-                    "attachment": {
-                        "type": "image",
-                        "payload": {
-                            "url": meme
+        if meme:
+            return json({
+                "messages": [
+                    {
+                        "attachment": {
+                            "type": "image",
+                            "payload": {
+                                "url": meme
+                            }
                         }
                     }
-                }
-            ]
-        })
+                ]
+            })
 
 # if __name__ == "__main__":
 #     app.run(host="0.0.0.0", port=8000)
