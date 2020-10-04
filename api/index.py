@@ -34,30 +34,24 @@ async def weather(request, city_id=""):
 
     return json(__message)
 
-@app.route("/meme", methods=["POST"])
-async def meme(request):
-    # fb_id = request.args['messenger_user_id']
+@app.route("/meme/<fb_id:int>")
+async def meme(request, fb_id):
+    if fb_id:
+        meme = Meme.Get(fb_id)
 
-    print(request.args)
-
-    return json(request.args)
-    
-    # if fb_id:
-    #     meme = Meme.Get(fb_id)
-
-    #     if meme:
-    #         return json({
-    #             "messages": [
-    #                 {
-    #                     "attachment": {
-    #                         "type": "image",
-    #                         "payload": {
-    #                             "url": meme
-    #                         }
-    #                     }
-    #                 }
-    #             ]
-    #         })
+        if meme:
+            return json({
+                "messages": [
+                    {
+                        "attachment": {
+                            "type": "image",
+                            "payload": {
+                                "url": meme
+                            }
+                        }
+                    }
+                ]
+            })
 
 # if __name__ == "__main__":
 #     app.run(host="0.0.0.0", port=8000)
