@@ -3,6 +3,7 @@ from sanic.response import json
 
 # utils
 from datetime import datetime
+import pytz
 from .weather import Weather
 from .meme import Meme
 
@@ -16,7 +17,7 @@ async def index(request, path=""):
 async def weather(request, city_id=""):
     weather = Weather.Get(city_id)
 
-    dt = datetime.now().strftime("%B %d, %Y | %I:%M %p")
+    dt = pytz.timezone("Asia/Manila").localize(datetime.now()).strftime("%B %d, %Y | %I:%M %p")
 
     if weather[0] != "404":
         __message = {
