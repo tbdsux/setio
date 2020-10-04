@@ -9,7 +9,6 @@ from .meme import Meme
 app = Sanic(name="setio")
 
 @app.route("/")
-@app.route("/<path:string>")
 async def index(request, path=""):
     return json({"hello": path})
 

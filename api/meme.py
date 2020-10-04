@@ -11,7 +11,7 @@ class Meme:
     @staticmethod
     def Get(fb_id):
         db = client["SetioMemes"]
-        collection = db[fb_id]
+        collection = db[str(fb_id)]
 
         meme = Meme.memer()
 
