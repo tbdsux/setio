@@ -39,18 +39,32 @@ async def meme(request, fb_id):
         meme = Meme.Get(fb_id)
 
         if meme:
-            return json({
-                "messages": [
-                    {
-                        "attachment": {
-                            "type": "image",
-                            "payload": {
-                                "url": meme
+            if meme.endswith("jpeg"):
+                return json({
+                    "messages": [
+                        {
+                            "attachment": {
+                                "type": "image",
+                                "payload": {
+                                    "url": meme
+                                }
                             }
                         }
-                    }
-                ]
-            })
+                    ]
+                })
+            else:
+                return json({
+                    "messages": [
+                        {
+                            "attachment": {
+                                "type": "video",
+                                "payload": {
+                                    "url": meme
+                                }
+                            }
+                        }
+                    ]
+                })
 
 # if __name__ == "__main__":
 #     app.run(host="0.0.0.0", port=8000)
