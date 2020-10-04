@@ -36,7 +36,7 @@ async def weather(request, city_id=""):
 
 @app.route("/meme", methods=["POST"])
 async def meme(request):
-    fb_id = request.args['messenger_user_id']
+    # fb_id = request.args['messenger_user_id']
 
     print(request.args)
 
