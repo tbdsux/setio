@@ -7,7 +7,7 @@ httpcore==0.11.1
 httptools==0.1.1
 httpx==0.15.4
 idna==2.10
-multidict==4.7.6
+multidict==5.1.0
 pymongo==3.11.0
 python-dotenv==0.14.0
 pytz==2020.1
